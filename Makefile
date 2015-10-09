@@ -8,7 +8,7 @@ get:
 	${GO} get
 
 build:
-	${GO} build -o ${BIN_NAME}
+	${GO} build
 
 test: get
 	${GO} test -v
