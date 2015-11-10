@@ -23,7 +23,6 @@ func expectDeepEqual(t *testing.T, a interface{}, b interface{}) {
 
 func TestHealthcheck(t *testing.T) {
 	router := violetear.New()
-	router.Verbose = false
 	router.LogRequests = false
 	err := router.HandleFunc("/_healthcheck_", healthCheck)
 	expect(t, err, nil)
