@@ -37,7 +37,7 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 
 	out, err := exec.Command(cmdName, cmdArgs...).Output()
 	if err != nil {
-		fmt.Fprintf(w, "There was an error running git rev-parse command: %s", err)
+		fmt.Fprintf(w, "There was an error running command: %s", err)
 		return
 	}
 
