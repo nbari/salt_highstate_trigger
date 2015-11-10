@@ -32,8 +32,8 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 
 	salt_node := fmt.Sprintf("G@node_type:%s", components[0])
 
-	cmdName := "sudo salt"
-	cmdArgs := []string{"-C", salt_node, "state.highstate"}
+	cmdName := "sudo"
+	cmdArgs := []string{"salt", "-C", salt_node, "state.highstate"}
 
 	out, err := exec.Command(cmdName, cmdArgs...).Output()
 	if err != nil {
