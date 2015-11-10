@@ -1,8 +1,9 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net/http"
+	"os/exec"
 	"strings"
 )
 
@@ -26,8 +27,20 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//We need to isolate the individual components of the path.
+	// We need to isolate the individual components of the path.
 	components := strings.Split(path, "/")
 
-	log.Println(components[0])
+	salt_node := fmt.Sprintf("G@node_type:%s", components[0])
+
+	cmdName := "salt"
+	cmdArgs := []string{"-C", salt_node, "state.highstate"}
+
+	out, err := exec.Command(cmdName, cmdArgs...).Output()
+	if err != nil {
+		fmt.Fprintf(w, "There was an error running git rev-parse command: %s", err)
+		return
+	}
+
+	fmt.Fprintf(w, string(out))
+	return
 }
