@@ -31,3 +31,5 @@ SUDO
 ----
 
 nobody ALL = NOPASSWD: /usr/local/bin/salt
+
+.
