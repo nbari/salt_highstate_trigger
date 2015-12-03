@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-var version = "0.0.2"
+var version = "0.0.1"
 
 func main() {
 	router := violetear.New()
