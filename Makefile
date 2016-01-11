@@ -5,7 +5,7 @@ GO ?= go
 all: build test
 
 get:
-	${GO} get
+	${GO} get -u
 
 build:
 	${GO} build

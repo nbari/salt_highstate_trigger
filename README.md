@@ -10,7 +10,7 @@ Call http://<host>/node_type, example:
 
 The command that will be run is:
 
-	# sudo salt -C G@node_type:web_app state.highstate
+	# sudo salt -C "G@node_type:web_app*" state.highstate
 
 > node_type is a custom grain
 
@@ -31,3 +31,5 @@ SUDO
 ----
 
 nobody ALL = NOPASSWD: /usr/local/bin/salt
+
+.

@@ -30,7 +30,8 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 	// We need to isolate the individual components of the path.
 	components := strings.Split(path, "/")
 
-	salt_node := fmt.Sprintf("G@node_type:%s", components[0])
+	// added an * to match project_staging/production
+	salt_node := fmt.Sprintf("G@node_type:%s*", components[0])
 
 	cmdName := "sudo"
 	cmdArgs := []string{"salt", "-C", salt_node, "state.highstate"}
