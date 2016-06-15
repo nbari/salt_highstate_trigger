@@ -15,5 +15,5 @@ func main() {
 	router.HandleFunc("/*", mainHandler)
 	router.HandleFunc("/_healthcheck_", healthCheck)
 
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8000", router))
 }
